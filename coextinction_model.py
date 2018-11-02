@@ -637,8 +637,8 @@ for time_step in range(int(50*time_res)): #set number of step
 										edge_replaced = 'yes' #change status of successful edge replacement label
 										col_ok = 'yes' #change status of successful colonization label
 									elif int(col_sp[2])>0 and random()>niche(col_sp[1],space[j][1]): #if the colonizer is not a basal resource and adapted to the climate of the target locality, it will be used as an alternative resource by the consumer (not outcompeting local resource)
-										new_list.append([names[prey],names[pred],tlink['weight']*random()]) #add the new link between the colonizer as a resource and the local consumer; weight of the new interaction is a random fraction of the weight of the target interaction; this actually strenghten the food web
-										new_list.append([col_sp[0],names[pred],tlink['weight']])	#add the pre-existing link, with the original weight
+										new_list.append([col_sp[0],names[pred],tlink['weight']*random()]) #add the new link between the colonizer as a resource and the local consumer; weight of the new interaction is a random fraction of the weight of the target interaction; this actually strenghten the food web
+										new_list.append([names[prey],names[pred],tlink['weight']])	#add the pre-existing link, with the original weight
 										edge_replaced = 'yes'	#change status of successful edge replacement label
 										col_ok = 'yes'	#change status of successful colonization label
 						if edge_replaced!= 'yes':	#if no colonization attempt was successful, add back the original link to the network
